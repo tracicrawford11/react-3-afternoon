@@ -7,26 +7,31 @@ import './Compose.css';
 
 export default class Compose extends Component {
   constructor() {
-    super();
+    super()
     
     this.state = {
       text: ''
-    };
+    }
 
-    this.createPost = this.createPost.bind( this );
+    this.createPost = this.createPost.bind( this )
   }
 
   updateText( text ) {
-    this.setState({ text });
+    this.setState({ text })
   }
 
   createPost() {
+    const {text}=this.state
+    const {createPostFn} =this.props
+
+    createPostFn (text)
+    this.setState({text: ""})
 
   }
 
   render() {
     // Destructuring
-    const { text } = this.state;
+    const { text } = this.state
 
     return (
       <section className="Compose__parent">
